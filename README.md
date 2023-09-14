@@ -86,10 +86,11 @@ auth_api.GetToken()
 
 Formats for time filtering are:
 * Unix epoch as a string
-* Custom relative strings, referencing minutes, hours, and days. eg:  
-  - '5minutes'
-  - '1hour'
-  - '2weeks'
+* Custom relative strings, referencing minutes, hours, and days. Notice, these strings need to start with the minus character:  
+  - '-5minutes'
+  - '-1hour'
+  - '-30days'
+  - '-2weeks'
 * The string 'now' for the current time  
   https://developer.cisco.com/docs/cloud-security/#!api-reference-reports-reporting-overview/request-query-parameters
   
