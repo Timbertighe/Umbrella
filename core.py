@@ -191,10 +191,10 @@ class ApiCall:
         limit : int
             Set the default limit for the number of results returned
 
-        from : int or string
+        timefrom : int or string
             Set the default 'from' time for the query
 
-        to : int or string
+        timeto : int or string
             Set the default 'to' time for the query
 
         Raises
@@ -218,13 +218,13 @@ class ApiCall:
         self.offset = 0
 
         # Default time range
-        if 'from' in kwargs:
-            self.from_date = kwargs['from']
+        if 'timefrom' in kwargs:
+            self.from_date = kwargs['timefrom']
         else:
             self.from_date = '-1days'
 
-        if 'to' in kwargs:
-            self.to_date = kwargs['to']
+        if 'timeto' in kwargs:
+            self.to_date = kwargs['timeto']
         else:
             self.to_date = 'now'
 
@@ -336,6 +336,11 @@ class ApiCall:
             return response.json()['data']
         else:
             print(f'Error: API returned status {response.status_code}')
+            error = response.json()['data']['errors'][0]
+            print(
+                f"The \'{error['param']}\' parameter was \'{error['value']}\'"
+            )
+            print(f"This returned the error \'{error['error']}\'")
             return None
 
 
