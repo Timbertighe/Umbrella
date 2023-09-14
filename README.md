@@ -84,6 +84,12 @@ auth_api.GetToken()
 * 'size' - The number of results to return  
 * 'page' - The result number to start with  
 
-  Formats for time filtering are available here:  
+Formats for time filtering are:
+* Unix epoch as a string
+* Custom relative strings, referencing minutes, hours, and days. eg:  
+  - '5minutes'
+  - '1hour'
+  - '2weeks'
+* The string 'now' for the current time  
   https://developer.cisco.com/docs/cloud-security/#!api-reference-reports-reporting-overview/request-query-parameters
   
